@@ -51,6 +51,15 @@ h1, h2, h3, h4, h5, h6 {
   color: #5a5a5a;
 }
 
+a {
+  color: #009791;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+a:hover {
+  color: #006460;
+}
+
 .container {
   max-width: 1530px;
   margin: 0 auto;
@@ -188,6 +197,10 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-50%);
 }
 
+.site-branding {
+  display: block;
+}
+
 .site-title {
   text-transform: uppercase;
   margin: 0;
@@ -199,4 +212,22 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Invention", sans-serif;
   font-size: 19px;
   margin: 0;
+}
+
+.navbar-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.navbar-nav li {
+  display: inline-block;
+}
+.navbar-nav li a {
+  color: #5a5a5a;
+  font-size: 21px;
+  padding: 30px 27px;
+  display: block;
+}
+.navbar-nav li:hover a {
+  color: #009791;
 }/*# sourceMappingURL=style.css.map */

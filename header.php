@@ -21,12 +21,12 @@
                     </div>
                 </div>
                 <div class="col col-6">
-                    <div class="site-branding text-center">
+                    <a class="site-branding text-center" href="<?php echo esc_url( home_url( '/' ) ); ?>">
                         <?php 
                             echo '<h1 class="site-title">' . get_bloginfo( 'name' ) . '</h1>'; 
                             echo '<h5 class="site-tagline">' . get_bloginfo( 'description', 'display' ) . '</h5>'; 
                         ?>
-                    </div>
+                    </a>
                 </div>
                 <div class="col col-3 text-right">
                     <button class="btn btn-primary">
@@ -36,4 +36,16 @@
             </div>
         </div>
     </div>
+    <nav class="site-navbar">
+        <div class="container text-center">
+        <?php 
+        wp_nav_menu( array(
+            'theme_location'  => 'primary',
+            'depth'           => 2,
+            'container'         => false,
+            'menu_class'      => 'navbar-nav'
+        ) );
+        ?>
+        </div>
+    </nav>
 </header>
