@@ -1,0 +1,28 @@
+
+@charset "UTF-8";
+
+/*
+Theme Name: Industry Drive
+Theme URI: https://github.com/foysalremon/industry-drive
+Author: Industry Drive
+Author URI: https://www.industrydive.com/
+Description: A simple and clean WordPress theme for industry drive
+Requires at least: 5.3
+Tested up to: 6.0.2
+Requires PHP: 5.6
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: industry-drive
+Tags: one-column, accessibility-ready, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, block-patterns, rtl-language-support, sticky-post, threaded-comments, translation-ready
+*/
+
+//Variables
+$primaryColor: #009791;
+$secondaryColor: #333e47;
+$overlayColor: rgba(0, 0, 0, 0.4);
+$textColor: #5a5a5a;
+$white: #ffffff;
+
+@import 'fonts';
+@import 'general';
