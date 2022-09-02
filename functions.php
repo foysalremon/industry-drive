@@ -4,6 +4,9 @@
  define( 'ID_THEME_URI', get_template_directory_uri() );
  define( 'ID_THEME_SUB_DIR', ID_THEME_DIR.'/inc/' );
 
+ // Load Require File
+require_once ID_THEME_SUB_DIR.'id-customizer.php';
+
  // On setting up theme
  if(!function_exists('industry_dive_setup')){
     function industry_dive_setup(){
@@ -78,7 +81,11 @@ add_action( 'after_setup_theme', 'industry_dive_content_width', 0 );
 
 // Enqueue scripts and styles.
 function industry_dive_scripts() {
+	wp_enqueue_style( 'slick-style', ID_THEME_URI . '/assets/css/slick.css' );
+	wp_enqueue_style( 'slick-theme', ID_THEME_URI . '/assets/css/slick-theme.css' );
 	wp_enqueue_style( 'id-style', ID_THEME_URI . '/style.css', array(), filemtime(get_theme_file_path('/style.css')) );
+    
+    wp_enqueue_script( 'slick', ID_THEME_URI . '/assets/js/slick.min.js', array('jquery'), false, true );
     wp_enqueue_script( 'id', ID_THEME_URI . '/assets/js/theme.js', array('jquery'), filemtime(get_theme_file_path('/assets/js/theme.js')), true );
     wp_localize_script( 'id', 'id', array(
 		'ajaxurl' => site_url() . '/wp-admin/admin-ajax.php',

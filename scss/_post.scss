@@ -6,6 +6,40 @@
     margin-bottom: 40px;
 }
 
+.featured-slider{
+    .post{
+        height: 720px;
+    }
+    .post-body{
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+    }
+    .slick-prev{
+        left: 25px;
+        &:before{
+            content: "\f341";
+        }
+    }
+    .slick-next{
+        right: 25px;
+        &:before{
+            content: "\f345";
+        }
+    }
+    .slick-prev, .slick-next{
+        z-index: 5;
+        width: auto;
+        height: auto;
+        &:before{
+            font-family: dashicons;
+            font-size: 6rem;
+        }
+    }
+}
+
 .featured-image{
     position: absolute;
     top: 0;
@@ -50,6 +84,7 @@
     a{
         color: inherit;
         font-size: inherit;
+        display: inline-block;
         &:not(:first-child){
             margin-left: 8px;
         }
@@ -162,7 +197,41 @@
     }
 }
 
+.comment-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    .children{
+        list-style: none;
+    }
+}
+
+.comment-respond{
+    input, textarea{
+        width: 100%;
+        border: 1px solid #3a3a3a;
+        background-color: transparent;
+        padding: 8px 16px;
+        border-radius: 3px;
+        &:focus{
+            outline: none;
+            border-color: $primaryColor;
+        }
+    }
+}
+
+@media screen and (max-width: 1199.98px){
+    .post-normal .post-body{
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+    }
+}
+
 @media screen and (max-width: 1023.98px) {
+    .featured-slider .post {
+        height: 550px;
+    }
     .post-featured-primary{
         padding: 120px 0;
         .post-title {
@@ -181,6 +250,9 @@
 }
 
 @media screen and (max-width: 600px) {
+    .featured-slider .post {
+        height: 400px;
+    }
     .post-categories, .post-metas {
         font-size: 1.4rem;
     }

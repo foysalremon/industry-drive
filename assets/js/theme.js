@@ -1,8 +1,17 @@
 jQuery(function($){ 
     var queryData = {
         'action': 'loadmore',
-        'page' : 2
+        'page' : $("#archivePage").length > 0 ? 3 : 2
     };
+
+    //Featured Slider
+    $('.featured-slider').slick({
+        dots: false,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        //autoplay: true
+    });
 
     // Loadmore
 	$('.id-loadmore').click(function(){
