@@ -1,6 +1,6 @@
 /*************** Header ***************/ 
 .site-header{
-    background-color: white;
+    background-color: $white;
     min-height: 134px;
 }
 
@@ -11,7 +11,7 @@
     position: relative;
     [type=search]{
         background-color: #ececec;
-        font-size: 19px;
+        font-size: 1.9rem;
         border: 1px solid transparent;
         line-height: 26px;
         padding: 7px 16px 7px 60px;
@@ -30,12 +30,12 @@
 .site-title{
     text-transform: uppercase;
     margin: 0;
-    font-size: 35px;
+    font-size: 3.5rem;
     letter-spacing: 6px;
 }
 .site-tagline{
     font-family: $bodyFont;
-    font-size: 19px;
+    font-size: 1.9rem;
     margin: 0;
 }
 
@@ -47,7 +47,7 @@
         display: inline-block;
         a{
             color: $textColor;
-            font-size: 21px;
+            font-size: 2.1rem;
             padding: 30px 27px;
             display: block;
         }

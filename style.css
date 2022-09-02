@@ -150,28 +150,56 @@ a:hover {
 .btn {
   background-color: #009791;
   border: none;
-  color: white;
+  color: #ffffff;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 1.8rem;
   padding: 10px 20px;
   border-radius: 21px;
+  transition: all 0.3s ease;
 }
 .btn svg {
-  fill: white;
+  fill: #ffffff;
   display: inline-block;
   vertical-align: middle;
   width: 20px;
   height: 20px;
   margin-right: 10px;
+  transition: all 0.3s ease;
 }
 .btn span {
   display: inline-block;
   vertical-align: middle;
 }
+.btn:hover {
+  background-color: #006460;
+}
+.btn.btn-white {
+  background-color: #ffffff;
+  color: #5a5a5a;
+}
+.btn.btn-white svg {
+  fill: #5a5a5a;
+}
+.btn.btn-white:hover {
+  background-color: #009791;
+  color: #ffffff;
+}
+.btn.btn-white:hover svg {
+  fill: #ffffff;
+}
+.btn.btn-md {
+  font-size: 2.2rem;
+  padding: 17px 36px;
+  border-radius: 31px;
+}
+.btn.btn-md svg {
+  width: 24px;
+  height: 24px;
+}
 
 /*************** Header ***************/
 .site-header {
-  background-color: white;
+  background-color: #ffffff;
   min-height: 134px;
 }
 
@@ -184,7 +212,7 @@ a:hover {
 }
 .search-form [type=search] {
   background-color: #ececec;
-  font-size: 19px;
+  font-size: 1.9rem;
   border: 1px solid transparent;
   line-height: 26px;
   padding: 7px 16px 7px 60px;
@@ -204,13 +232,13 @@ a:hover {
 .site-title {
   text-transform: uppercase;
   margin: 0;
-  font-size: 35px;
+  font-size: 3.5rem;
   letter-spacing: 6px;
 }
 
 .site-tagline {
   font-family: "Invention", sans-serif;
-  font-size: 19px;
+  font-size: 1.9rem;
   margin: 0;
 }
 
@@ -224,10 +252,47 @@ a:hover {
 }
 .navbar-nav li a {
   color: #5a5a5a;
-  font-size: 21px;
+  font-size: 2.1rem;
   padding: 30px 27px;
   display: block;
 }
 .navbar-nav li:hover a {
   color: #009791;
+}
+
+/*************** Footer ***************/
+.site-footer {
+  background-color: #333e47;
+  color: #ffffff;
+  padding: 75px 0;
+}
+
+.footer-nav {
+  list-style: none;
+  margin: 0 0 70px;
+  padding: 0;
+}
+.footer-nav li {
+  display: inline-block;
+}
+.footer-nav li a {
+  color: #ffffff;
+  font-size: 1.8rem;
+  margin-right: 34px;
+}
+.footer-nav li a:hover {
+  color: #009791;
+}
+
+.copyright {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.subscribe-footer h4 {
+  color: #ffffff;
+  font-family: "Invention", sans-serif;
+  font-weight: 400;
+  font-size: 2.6rem;
+  margin: 0 0 15px;
 }/*# sourceMappingURL=style.css.map */

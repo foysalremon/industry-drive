@@ -67,21 +67,49 @@ a{
 .btn{
     background-color: $primaryColor;
     border: none;
-    color: white;
+    color: $white;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 1.8rem;
     padding: 10px 20px;
     border-radius: 21px;
+    transition: all 0.3s ease;
     svg{
-        fill: white;
+        fill: $white;
         display: inline-block;
         vertical-align: middle;
         width: 20px;
         height: 20px;
         margin-right: 10px;
+        transition: all 0.3s ease;
     }
     span{
         display: inline-block;
         vertical-align: middle;
+    }
+    &:hover{
+        background-color: darken($primaryColor, 10);
+    }
+    &.btn-white{
+        background-color: $white;
+        color: $textColor;
+        svg{
+            fill: $textColor;
+        }
+        &:hover{
+            background-color: $primaryColor;
+            color: $white;
+            svg{
+                fill: $white;
+            }
+        }
+    }
+    &.btn-md{
+        font-size: 2.2rem;
+        padding: 17px 36px;
+        border-radius: 31px;
+        svg{
+            width: 24px;
+            height: 24px;
+        }
     }
 }
