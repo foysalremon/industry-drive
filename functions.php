@@ -78,14 +78,10 @@ add_action( 'after_setup_theme', 'industry_dive_content_width', 0 );
 
 // Enqueue scripts and styles.
 function industry_dive_scripts() {
-    global $wp_query; 
 	wp_enqueue_style( 'id-style', ID_THEME_URI . '/style.css', array(), filemtime(get_theme_file_path('/style.css')) );
     wp_enqueue_script( 'id', ID_THEME_URI . '/assets/js/theme.js', array('jquery'), filemtime(get_theme_file_path('/assets/js/theme.js')), true );
     wp_localize_script( 'id', 'id', array(
 		'ajaxurl' => site_url() . '/wp-admin/admin-ajax.php',
-		'posts' => json_encode( $wp_query->query_vars ),
-		'current_page' => get_query_var( 'paged' ) ? get_query_var('paged') : 1,
-		'max_page' => $wp_query->max_num_pages
 	) );
 
 	// Threaded comment reply styles.
@@ -96,17 +92,23 @@ function industry_dive_scripts() {
 add_action( 'wp_enqueue_scripts', 'industry_dive_scripts' );
 
 function id_loadmore_ajax_handler(){
-	$args = json_decode( stripslashes( $_POST['query'] ), true );
-	$args['paged'] = $_POST['page'] + 1;
-	$args['post_status'] = 'publish';
+    $args = array(
+        'post_type' => 'post',
+        'posts_per_page' => 3,
+        'paged' => $_POST['page'] + 1
+    );
  
-	query_posts( $args );
+	$query = new WP_Query( $args );
  
-	if( have_posts() ) :
-		while( have_posts() ): the_post();
+    ob_start();
+	if( $query->have_posts() ) :
+		while( $query->have_posts() ): $query->the_post();
 			get_template_part( 'template-parts/content', get_post_format() ); 
 		endwhile; 
 	endif;
+    $postdata = ob_get_clean();
+    wp_send_json(array('posts' => $postdata, 'max_page' => $query->max_num_pages));
+    wp_reset_postdata();
 	die;
 }
  

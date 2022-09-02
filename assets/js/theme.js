@@ -1,17 +1,17 @@
 jQuery(function($){ 
+    var queryData = {
+        'action': 'loadmore',
+        'page' : 2
+    };
+
 	$('.id-loadmore').click(function(){
  
 		var button = $(this),
-            postWrap = $('#latest-post'),
-		    data = {
-                'action': 'loadmore',
-                'query': id.posts, 
-                'page' : id.current_page
-            };
+            postWrap = $('#latest-post');
  
 		$.ajax({ 
 			url : id.ajaxurl, 
-			data : data,
+			data : queryData,
 			type : 'POST',
 			beforeSend : function ( xhr ) {
 				button.text('Loading...');
@@ -19,10 +19,10 @@ jQuery(function($){
 			success : function( data ){
 				if( data ) { 
 					button.text( 'Load More' );
-                    postWrap.append(data); 
-					id.current_page++;
+                    postWrap.append(data.posts); 
+					queryData.page++;
  
-					if ( id.current_page == id.max_page ) 
+					if ( queryData.page == data.max_page ) 
 						button.remove();
 				} else {
 					button.remove();

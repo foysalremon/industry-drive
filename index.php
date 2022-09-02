@@ -166,10 +166,18 @@ wp_reset_postdata();
     <div class="container">
         <h2 class="section-title"><?php _e('Latest Article', 'industry-dive'); ?></h2>
         <?php 
-            if ( have_posts() ) {
+            unset($args);
+            $args = array(
+                'post_type' => 'post',
+                'posts_per_page' => 6,
+            );
+            
+            $query = new WP_Query( $args );
+
+            if ( $query->have_posts() ) {
                 echo '<div class="row" id="latest-post">';
-                while ( have_posts() ) {
-                    the_post();                
+                while ( $query->have_posts() ) {
+                    $query->the_post();                
                     get_template_part( 'template-parts/content', get_post_format() );
                 }
                 echo '</div>';
@@ -177,10 +185,11 @@ wp_reset_postdata();
                 get_template_part( 'template-parts/content-none' );                
             }
     
-            global $wp_query; 
-            if (  $wp_query->max_num_pages > 1 ){
+            if (  $query->max_num_pages > 1 ){
                 printf('<div class="text-center"><a class="btn btn-primary btn-lg id-loadmore">%s</a></div>', esc_html__('Load More', 'industry-dive'));
             }
+
+            wp_reset_postdata();
         ?>
     </div>
 </div>
