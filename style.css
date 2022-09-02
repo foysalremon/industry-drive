@@ -274,6 +274,12 @@ input {
   .text-sm-left {
     text-align: left;
   }
+  .text-sm-center {
+    text-align: center;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
 }
 /*************** Header ***************/
 .site-header {
@@ -305,6 +311,7 @@ input {
 
 .site-branding {
   display: inline-block;
+  vertical-align: middle;
 }
 
 .site-title {
@@ -351,7 +358,64 @@ input {
 .logged-in.admin-bar .site-navbar.affix {
   top: 32px;
 }
+.site-navbar .header-search {
+  margin: 8px 0;
+}
+.site-navbar .search-form [type=search] {
+  width: 100%;
+}
+.site-navbar .btn {
+  width: 100%;
+  margin: 8px 0;
+}
 
+@media screen and (max-width: 1023.98px) {
+  body {
+    margin-top: 74px;
+  }
+  .site-header {
+    position: fixed;
+    z-index: 900;
+    left: 0;
+    right: 0;
+    top: 0;
+    min-height: 0;
+  }
+  .logged-in.admin-bar .site-header {
+    top: 32px;
+  }
+  .site-header .top-header {
+    padding: 16px 0;
+    min-height: 74px;
+  }
+  .site-header .site-title {
+    font-size: 2.4rem;
+    line-height: 1;
+  }
+  .site-header .site-tagline {
+    font-size: 1.6rem;
+    line-height: 1;
+  }
+  .site-navbar {
+    display: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+  }
+  .site-navbar.affix {
+    position: static;
+  }
+  .navbar-nav li {
+    display: block;
+  }
+  .navbar-nav li a {
+    text-align: left;
+    padding: 8px 15px;
+  }
+}
+@media screen and (max-width: 782px) {
+  .logged-in.admin-bar .site-header {
+    top: 46px;
+  }
+}
 /*************** Post ***************/
 .post {
   background-color: #999;
@@ -548,4 +612,13 @@ input {
   font-weight: 400;
   font-size: 2.6rem;
   margin: 0 0 15px;
+}
+
+@media screen and (max-width: 1023.98px) {
+  .footer-nav {
+    margin-bottom: 15px;
+  }
+  .subscribe-footer {
+    margin-top: 30px;
+  }
 }/*# sourceMappingURL=style.css.map */

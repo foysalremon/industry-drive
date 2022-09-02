@@ -40,5 +40,23 @@ jQuery(function($){
         } else {
             target.removeClass('affix');
         }
-    })
+    });
+
+    $('.btn-menu-toggle').on('click', function() {
+        if ($('.site-navbar').is(':hidden')) {
+            $('.site-navbar').slideDown();
+            $(this).html('<span class="dashicons dashicons-no-alt"></span>');
+        } else {
+            $('.site-navbar').slideUp();
+            $(this).html('<span class="dashicons dashicons-menu"></span>');
+        }
+    });
+
+    $(window).on('resize orientationchange', function(){
+        if ($(window).width() < 1024) {
+            $('.site-navbar').css('display', 'none');
+        } else {
+            $('.site-navbar').css('display', 'block');
+        }
+    });
 });

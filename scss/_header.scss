@@ -26,6 +26,7 @@
 }
 .site-branding{
     display: inline-block;
+    vertical-align: middle;
 }
 .site-title{
     text-transform: uppercase;
@@ -69,6 +70,71 @@
         right: 0;
         .logged-in.admin-bar &{
             top: 32px;
+        }
+    }
+    .header-search{
+        margin: 8px 0;
+    }
+    .search-form {
+        [type=search]{
+            width: 100%;
+        }
+    }
+    .btn{
+        width: 100%;
+        margin: 8px 0;
+    }
+}
+
+@media screen and (max-width: 1023.98px){
+    body{
+        margin-top: 74px;
+    }
+    .site-header{
+        position: fixed;
+        z-index: 900;
+        left: 0;
+        right: 0;
+        top: 0;
+        min-height: 0;
+        .logged-in.admin-bar &{
+            top: 32px;
+        }
+        .top-header{
+            padding: 16px 0;
+            min-height: 74px;
+        }
+        .site-title{
+            font-size: 2.4rem;
+            line-height: 1;
+        }
+        .site-tagline{
+            font-size: 1.6rem;
+            line-height: 1;
+        }
+    }
+    .site-navbar{
+        display: none;
+        border-top: 1px solid rgba(black, 0.12);
+        &.affix{
+            position: static;
+        }
+    }
+    .navbar-nav {
+        li{
+            display: block;
+            a{
+                text-align: left;
+                padding: 8px 15px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 782px){
+    .site-header{
+        .logged-in.admin-bar &{
+            top: 46px;
         }
     }
 }
