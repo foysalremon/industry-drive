@@ -2,7 +2,9 @@
 html {
     font-size: 62.5%;
 }
-
+*{
+    box-sizing: border-box;
+}
 body{
     border: none;
     margin: 0;
@@ -30,13 +32,32 @@ a{
     }
 }
 
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+.section{
+    padding-top: 60px;
+    padding-bottom: 20px;
+    + .section{
+        padding-top: 0;
+    }
+    .section-title{
+        font-family: $bodyFont;
+        font-size: 2.4rem;
+        text-transform: uppercase;
+        margin: 0 0 40px;
+    }
+}
+
 .container{
     max-width: 1530px;
     margin: 0 auto;
 }
 
 .row{
-    margin: 0 -15px;
+    margin: 0 -20px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -55,6 +76,7 @@ a{
 
 .col{
     flex: 1 0 0%;
+    padding: 0 20px;
 }
 
 @for $i from 1 through 12 {
@@ -73,6 +95,7 @@ a{
     padding: 10px 20px;
     border-radius: 21px;
     transition: all 0.3s ease;
+    display: inline-block;
     svg{
         fill: $white;
         display: inline-block;
@@ -88,6 +111,7 @@ a{
     }
     &:hover{
         background-color: darken($primaryColor, 10);
+        color: $white;
     }
     &.btn-white{
         background-color: $white;
@@ -111,5 +135,44 @@ a{
             width: 24px;
             height: 24px;
         }
+    }
+    &.btn-lg{
+        text-transform: uppercase;
+        padding: 19px 35px;
+        border-radius: 35px;
+    }
+}
+
+.dashicons, .dashicons-before:before{
+    width: auto;
+    height: auto;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+@media screen and (max-width: 1599.98px){
+    .container{
+        width: 1140px;
+    }
+}
+
+@media screen and (max-width: 1199.98px){
+    .container{
+        width: 1000px;
+    }
+}
+
+@media screen and (max-width: 1059.98px){
+    .container{
+        width: 960px;
+    }
+}
+
+@media screen and (max-width: 1023.98px){
+    .container{
+        width: calc(100% - 40px);
+    }
+    .col-4{
+        width: 50%;
     }
 }

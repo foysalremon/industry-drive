@@ -35,6 +35,9 @@
         /* Enable support for Post Thumbnails on posts and pages. */
         add_theme_support( 'post-thumbnails' );
         set_post_thumbnail_size( 1530, 9999 );
+        add_image_size( 'post-secondary', 745, 360, true );
+        add_image_size( 'post-tertiary', 745, 760, true );
+        add_image_size( 'post-general', 485, 390, true );
 
         register_nav_menus(
             array(
@@ -75,8 +78,15 @@ add_action( 'after_setup_theme', 'industry_dive_content_width', 0 );
 
 // Enqueue scripts and styles.
 function industry_dive_scripts() {
+    global $wp_query; 
 	wp_enqueue_style( 'id-style', ID_THEME_URI . '/style.css', array(), filemtime(get_theme_file_path('/style.css')) );
     wp_enqueue_script( 'id', ID_THEME_URI . '/assets/js/theme.js', array('jquery'), filemtime(get_theme_file_path('/assets/js/theme.js')), true );
+    wp_localize_script( 'id', 'id', array(
+		'ajaxurl' => site_url() . '/wp-admin/admin-ajax.php',
+		'posts' => json_encode( $wp_query->query_vars ),
+		'current_page' => get_query_var( 'paged' ) ? get_query_var('paged') : 1,
+		'max_page' => $wp_query->max_num_pages
+	) );
 
 	// Threaded comment reply styles.
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -84,3 +94,23 @@ function industry_dive_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'industry_dive_scripts' );
+
+function id_loadmore_ajax_handler(){
+	$args = json_decode( stripslashes( $_POST['query'] ), true );
+	$args['paged'] = $_POST['page'] + 1;
+	$args['post_status'] = 'publish';
+ 
+	query_posts( $args );
+ 
+	if( have_posts() ) :
+		while( have_posts() ): the_post();
+			get_template_part( 'template-parts/content', get_post_format() ); 
+		endwhile; 
+	endif;
+	die;
+}
+ 
+ 
+ 
+add_action('wp_ajax_loadmore', 'id_loadmore_ajax_handler'); 
+add_action('wp_ajax_nopriv_loadmore', 'id_loadmore_ajax_handler');
