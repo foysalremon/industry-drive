@@ -91,6 +91,17 @@ function industry_dive_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'industry_dive_scripts' );
 
+function id_category_colorpicker_enqueue( $taxonomy ) {
+    if( null !== ( $screen = get_current_screen() ) && 'edit-category' !== $screen->id ) {
+        return;
+    }
+    wp_enqueue_style( 'wp-color-picker' );
+    wp_enqueue_script( 'id-admin', ID_THEME_URI . '/assets/js/admin.js', array('wp-color-picker'), filemtime(get_theme_file_path('/assets/js/admin.js')), true );
+}
+add_action( 'admin_enqueue_scripts', 'id_category_colorpicker_enqueue' );
+
+
+// Loadmore ajax
 function id_loadmore_ajax_handler(){
     $args = array(
         'post_type' => 'post',
@@ -112,7 +123,33 @@ function id_loadmore_ajax_handler(){
 	die;
 }
  
- 
- 
 add_action('wp_ajax_loadmore', 'id_loadmore_ajax_handler'); 
 add_action('wp_ajax_nopriv_loadmore', 'id_loadmore_ajax_handler');
+
+//add color to category
+function id_colorpicker_field_edit_category( $term ) {
+    $color = isset($term->term_id) ? get_term_meta( $term->term_id, '_category_color', true ) : 'f7c546';
+    $color = ( ! empty( $color ) ) ? "#{$color}" : '#f7c546';
+  ?>
+    <tr class="form-field term-colorpicker-wrap">
+        <th scope="row"><label for="term-colorpicker">Color</label></th>
+        <td>
+            <input name="_category_color" value="<?php echo $color; ?>" class="colorpicker" id="term-colorpicker" data-default-color="<?php echo $color; ?>"/>
+            <p class="description"><?php _e('Select a color for the category to style posts', 'industry-drive'); ?></p>
+        </td>
+    </tr>
+  <?php
+}
+add_action( 'category_edit_form_fields', 'id_colorpicker_field_edit_category' );
+add_action( 'category_add_form_fields', 'id_colorpicker_field_edit_category' );
+
+function id_save_termmeta( $term_id ) {
+    if( isset( $_POST['_category_color'] ) && ! empty( $_POST['_category_color'] ) ) {
+        update_term_meta( $term_id, '_category_color', sanitize_hex_color_no_hash( $_POST['_category_color'] ) );
+    } else {
+        delete_term_meta( $term_id, '_category_color' );
+    }
+
+}
+add_action( 'created_category', 'id_save_termmeta' ); 
+add_action( 'edited_category',  'id_save_termmeta' );

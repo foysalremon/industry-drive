@@ -521,9 +521,6 @@ input {
 .post-title a {
   color: inherit;
 }
-.post-title a:hover {
-  color: #009791;
-}
 
 .post-categories {
   color: #ffffff;
@@ -540,9 +537,6 @@ input {
 .post-categories a:not(:last-child) {
   margin-right: 8px;
 }
-.post-categories a:hover {
-  color: #009791;
-}
 
 .post-metas {
   color: #ffffff;
@@ -551,9 +545,6 @@ input {
 }
 .post-metas a {
   color: inherit;
-}
-.post-metas a:hover {
-  color: #009791;
 }
 .post-metas .post-meta {
   display: inline-block;
@@ -618,6 +609,29 @@ input {
 
 .latest-article-section {
   padding-bottom: 60px;
+}
+
+.post-color {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-bottom: 4px solid #f7c546;
+}
+.post-color .full-color {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f7c546;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.post:hover .post-color .full-color {
+  opacity: 0.7;
 }
 
 @media screen and (max-width: 1023.98px) {
