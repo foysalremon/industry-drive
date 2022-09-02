@@ -69,6 +69,10 @@ img {
   height: auto;
 }
 
+input {
+  max-width: 100%;
+}
+
 .section {
   padding-top: 60px;
   padding-bottom: 20px;
@@ -235,6 +239,10 @@ img {
   line-height: inherit;
 }
 
+.d-none {
+  display: none;
+}
+
 @media screen and (max-width: 1599.98px) {
   .container {
     width: 1140px;
@@ -256,6 +264,15 @@ img {
   }
   .col-4 {
     width: 50%;
+  }
+  .sm-d-block {
+    display: block;
+  }
+  .sm-d-none {
+    display: none;
+  }
+  .text-sm-left {
+    text-align: left;
   }
 }
 /*************** Header ***************/
@@ -287,7 +304,7 @@ img {
 }
 
 .site-branding {
-  display: block;
+  display: inline-block;
 }
 
 .site-title {
@@ -319,6 +336,20 @@ img {
 }
 .navbar-nav li:hover a {
   color: #009791;
+}
+
+.site-navbar {
+  z-index: 900;
+  background-color: #ffffff;
+}
+.site-navbar.affix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.logged-in.admin-bar .site-navbar.affix {
+  top: 32px;
 }
 
 /*************** Post ***************/
