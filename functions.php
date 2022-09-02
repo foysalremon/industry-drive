@@ -153,3 +153,20 @@ function id_save_termmeta( $term_id ) {
 }
 add_action( 'created_category', 'id_save_termmeta' ); 
 add_action( 'edited_category',  'id_save_termmeta' );
+
+
+// Subscribe action
+function id_subscribe_process(){
+    if ( !isset( $_POST['nonce'] ) || !wp_verify_nonce($_POST['nonce'], 'id_subscribe')) {
+        wp_send_json_error(__('Sorry, something went wrong', 'industry-dive'));
+    } else {
+        if(is_email($_POST['email'])){
+            wp_send_json_success(__('Thank you for subscribing!', 'industry-dive'));
+        } else {
+            wp_send_json_error(__('Sorry, please enter a valid email address.', 'industry-dive'));
+        }
+    }
+}
+
+add_action('wp_ajax_nopriv_id_subscribe', 'id_subscribe_process');
+add_action('wp_ajax_id_subscribe', 'id_subscribe_process');

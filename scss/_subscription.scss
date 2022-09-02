@@ -1,0 +1,105 @@
+/*************** Subscription ***************/ 
+.subscription-popup{
+    background-color: $white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    max-width: calc(100% - 60px);
+    max-height: calc(100vh - 60px);
+    overflow: auto;
+    padding: 50px;
+    text-align: center;
+    border-radius: 12px;
+    margin-top: 50px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    h5{
+        font-size: 2.4rem;
+        margin: 0 0 30px;
+    }
+    .subscriptionClose{
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 4.5rem;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        color: $primaryColor;
+    }
+}
+
+.subscription-popup-wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(black, 0.7);
+    z-index: 920;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+    &.shown{
+        visibility: visible;
+        opacity: 1;
+        .subscription-popup{
+            margin-top: 0;
+            opacity: 1;
+        }
+    }
+}
+
+.subsciption-form{
+    [type=text]{
+        width: 100%;
+        background-color: #ececec;
+        font-size: 1.6rem;
+        border: 1px solid transparent;
+        line-height: 26px;
+        padding: 12px 24px;
+        border-radius: 21px;
+        &:focus{
+            border-color: $primaryColor;
+        }
+    }
+    .subsciption-response{
+        margin: 10px 0 0;
+        background-color: #3a3a3a;
+        color: white;
+        padding: 2px;
+        border-radius: 6px;
+        display: none;
+        &.subscription-wait,
+        &.subscription-success,
+        &.subscription-error{
+            display: block;
+        }
+        &.subscription-wait{
+            background-color: #f1c40f;
+        }
+        &.subscription-success{
+            background-color: #16a085;
+        }
+        &.subscription-error{
+            background-color: #e74c3c;
+        }
+    }
+    .btn{
+        margin-top: 20px;
+    }
+}
+
+.subscriptionClose, .subscriptionToggle{
+    *{
+        pointer-events: none;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .subscription-popup{
+        padding: 35px 20px;
+    }
+}

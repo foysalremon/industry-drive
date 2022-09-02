@@ -39,6 +39,10 @@ img{
 
 input{
     max-width: 100%;
+    &:focus{
+        outline: none;
+        border-color: $primaryColor;
+    }
 }
 
 .section{

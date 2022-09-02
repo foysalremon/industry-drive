@@ -16,6 +16,9 @@
         line-height: 26px;
         padding: 7px 16px 7px 60px;
         border-radius: 21px;
+        &:focus{
+            border-color: $primaryColor;
+        }
     }
     .dashicons{
         position: absolute;
