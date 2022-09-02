@@ -138,3 +138,31 @@
         }
     }
 }
+
+@media screen and (max-width: 767.98px){
+    .top-header{
+        .col-6{
+            width: 50%;
+        }
+    }
+}
+
+@media screen and (max-width: 600px){
+    .site-header{
+        position: absolute;
+        .site-title{
+            font-size: 1.8rem;
+        }
+        .site-tagline{
+            font-size: 1.4rem;
+        }
+    }
+    .top-header .col-6{
+        &.text-sm-left{
+            width: 70%;
+        }
+        &.sm-d-block{
+            width: 30%;
+        }
+    }
+}

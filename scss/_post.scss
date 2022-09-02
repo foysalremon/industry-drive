@@ -159,3 +159,32 @@
         font-size: 1.6rem;
     }
 }
+
+@media screen and (max-width: 600px) {
+    .post-categories, .post-metas {
+        font-size: 1.4rem;
+    }
+    .post-featured-primary {
+        padding: 64px 0;
+        .post-title {
+            font-size: 2.4rem;
+        }
+    }
+    .post-featured-secondary, .post-featured-tertiary, .post-normal{
+        .post-body{
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+        }
+        .post-title {
+            font-size: 2.4rem;
+        }
+        .post-categories, .post-metas{
+            font-size: 1.2rem;
+        }
+    }
+    .post-featured-tertiary {
+        min-height: 360px;
+    }
+}

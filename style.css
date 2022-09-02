@@ -281,6 +281,44 @@ input {
     width: 100%;
   }
 }
+@media screen and (max-width: 767.98px) {
+  .col-1 {
+    width: 100%;
+  }
+  .col-2 {
+    width: 100%;
+  }
+  .col-3 {
+    width: 100%;
+  }
+  .col-4 {
+    width: 100%;
+  }
+  .col-5 {
+    width: 100%;
+  }
+  .col-6 {
+    width: 100%;
+  }
+  .col-7 {
+    width: 100%;
+  }
+  .col-8 {
+    width: 100%;
+  }
+  .col-9 {
+    width: 100%;
+  }
+  .col-10 {
+    width: 100%;
+  }
+  .col-11 {
+    width: 100%;
+  }
+  .col-12 {
+    width: 100%;
+  }
+}
 /*************** Header ***************/
 .site-header {
   background-color: #ffffff;
@@ -414,6 +452,28 @@ input {
 @media screen and (max-width: 782px) {
   .logged-in.admin-bar .site-header {
     top: 46px;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .top-header .col-6 {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .site-header {
+    position: absolute;
+  }
+  .site-header .site-title {
+    font-size: 1.8rem;
+  }
+  .site-header .site-tagline {
+    font-size: 1.4rem;
+  }
+  .top-header .col-6.text-sm-left {
+    width: 70%;
+  }
+  .top-header .col-6.sm-d-block {
+    width: 30%;
   }
 }
 /*************** Post ***************/
@@ -577,6 +637,32 @@ input {
     font-size: 1.6rem;
   }
 }
+@media screen and (max-width: 600px) {
+  .post-categories, .post-metas {
+    font-size: 1.4rem;
+  }
+  .post-featured-primary {
+    padding: 64px 0;
+  }
+  .post-featured-primary .post-title {
+    font-size: 2.4rem;
+  }
+  .post-featured-secondary .post-body, .post-featured-tertiary .post-body, .post-normal .post-body {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+  }
+  .post-featured-secondary .post-title, .post-featured-tertiary .post-title, .post-normal .post-title {
+    font-size: 2.4rem;
+  }
+  .post-featured-secondary .post-categories, .post-featured-secondary .post-metas, .post-featured-tertiary .post-categories, .post-featured-tertiary .post-metas, .post-normal .post-categories, .post-normal .post-metas {
+    font-size: 1.2rem;
+  }
+  .post-featured-tertiary {
+    min-height: 360px;
+  }
+}
 /*************** Footer ***************/
 .site-footer {
   background-color: #333e47;
@@ -616,7 +702,10 @@ input {
 
 @media screen and (max-width: 1023.98px) {
   .footer-nav {
-    margin-bottom: 15px;
+    margin: 0 -10px 15px;
+  }
+  .footer-nav li a {
+    margin: 0 10px;
   }
   .subscribe-footer {
     margin-top: 30px;

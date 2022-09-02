@@ -199,3 +199,11 @@ input{
         width: 100%;
     }
 }
+
+@media screen and (max-width: 767.98px){
+    @for $i from 1 through 12 {
+        .col-#{$i} {
+            width: 100%;
+        }
+    }
+}

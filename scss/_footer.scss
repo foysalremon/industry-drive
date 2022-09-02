@@ -39,7 +39,12 @@
 
 @media screen and (max-width: 1023.98px){
     .footer-nav{
-        margin-bottom: 15px;
+        margin: 0 -10px 15px;
+        li{
+            a{
+                margin: 0 10px;
+            }
+        }
     }
     .subscribe-footer{
         margin-top: 30px;
