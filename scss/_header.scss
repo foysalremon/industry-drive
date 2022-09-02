@@ -1,0 +1,38 @@
+/*************** Header ***************/ 
+.site-header{
+    background-color: white;
+    min-height: 134px;
+}
+
+.top-header{
+    padding-top: 32px;
+}
+.search-form{
+    position: relative;
+    [type=search]{
+        background-color: #ececec;
+        font-size: 19px;
+        border: 1px solid transparent;
+        line-height: 26px;
+        padding: 7px 16px 7px 60px;
+        border-radius: 21px;
+    }
+    .dashicons{
+        position: absolute;
+        left: 30px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+.site-title{
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 35px;
+    letter-spacing: 6px;
+}
+.site-tagline{
+    font-family: $bodyFont;
+    font-size: 19px;
+    margin: 0;
+}

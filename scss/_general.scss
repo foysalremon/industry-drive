@@ -6,15 +6,73 @@ html {
 body{
     border: none;
     margin: 0;
-    font-family: "Invention", sans-serif;
+    font-family: $bodyFont;
     line-height: 1.75;
     font-weight: 400;
     font-size: 1.4rem;
     background-color: #f6f6f6;
+    color: $textColor;
 }
 
 h1, h2, h3, h4, h5, h6{
-    font-family: "Khand", sans-serif;
+    font-family: $headingFont;
     font-weight: 700;
     line-height: 1.3;
+    color: $textColor;
+}
+
+.container{
+    max-width: 1530px;
+    margin: 0 auto;
+}
+
+.row{
+    margin: 0 -15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.text-right{
+    text-align: right;
+}
+
+.align-items-center{
+    align-items: center;
+}
+
+.col{
+    flex: 1 0 0%;
+}
+
+@for $i from 1 through 12 {
+    .col-#{$i} {
+        flex: 0 0 auto;
+        width: calc((100% / 12) * $i);
+    }
+}
+
+.btn{
+    background-color: $primaryColor;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 21px;
+    svg{
+        fill: white;
+        display: inline-block;
+        vertical-align: middle;
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
+    span{
+        display: inline-block;
+        vertical-align: middle;
+    }
 }

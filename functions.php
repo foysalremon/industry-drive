@@ -5,10 +5,10 @@
  define( 'ID_THEME_SUB_DIR', ID_THEME_DIR.'/inc/' );
 
  // On setting up theme
- if(!function_exists('industry_drive_setup')){
-    function industry_drive_setup(){
+ if(!function_exists('industry_dive_setup')){
+    function industry_dive_setup(){
         /* Make theme available for translation. */
-        load_theme_textdomain( 'industry-drive', get_template_directory() . '/languages' );
+        load_theme_textdomain( 'industry-dive', get_template_directory() . '/languages' );
 
         /* Add default posts and comments RSS feed links to head. */
         add_theme_support( 'automatic-feed-links' );
@@ -38,8 +38,8 @@
 
         register_nav_menus(
             array(
-                'primary' => esc_html__( 'Header Menu', 'industry-drive' ),
-                'footer'  => esc_html__( 'Footer Menu', 'industry-drive' ),
+                'primary' => esc_html__( 'Header Menu', 'industry-dive' ),
+                'footer'  => esc_html__( 'Footer Menu', 'industry-dive' ),
             )
         );
 
@@ -64,22 +64,23 @@
         add_theme_support( 'responsive-embeds' );
     }
 
-    add_action( 'after_setup_theme', 'industry_drive_setup' );
+    add_action( 'after_setup_theme', 'industry_dive_setup' );
  }
 
  // Set content width
-function industry_drive_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'industry_drive_content_width', 1530 );
+function industry_dive_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'industry_dive_content_width', 1530 );
 }
-add_action( 'after_setup_theme', 'industry_drive_content_width', 0 );
+add_action( 'after_setup_theme', 'industry_dive_content_width', 0 );
 
 // Enqueue scripts and styles.
-function industry_drive_scripts() {
-	wp_enqueue_style( 'moose-style', ID_THEME_URI . '/style.css', array(), filemtime(get_theme_file_path('/style.css')) );
+function industry_dive_scripts() {
+	wp_enqueue_style( 'id-style', ID_THEME_URI . '/style.css', array(), filemtime(get_theme_file_path('/style.css')) );
+    wp_enqueue_script( 'id', ID_THEME_URI . '/assets/js/theme.js', array('jquery'), filemtime(get_theme_file_path('/assets/js/theme.js')), true );
 
 	// Threaded comment reply styles.
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'industry_drive_scripts' );
+add_action( 'wp_enqueue_scripts', 'industry_dive_scripts' );
